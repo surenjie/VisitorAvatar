@@ -2,6 +2,9 @@
  "name": "VisitorAvatar",
  "version": "0.1.0",
  "description": "Custom Display visitors Avatar and Description",
+ "keywords": ["Intranet", "Visitor", "Avatar", "Description"],
+ "license": "GPL v3",
+ "homepage": "https://github.com/surenjie/VisitorAvatar",
  "theme": false,
  "require": {
     "piwik": ">=2.8.3"
@@ -10,7 +13,7 @@
      {
          "name": "renjie",
          "email": "i@renjie.me",
-         "homepage": "https://github.com/surenjie/VisitorAvatar"
+         "homepage": "https://github.com/surenjie"
      }
  ]
 }
