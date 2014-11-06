@@ -1,0 +1,16 @@
+{
+ "name": "VisitorAvatar",
+ "version": "0.1.0",
+ "description": "Custom Display visitors Avatar and Description",
+ "theme": false,
+ "require": {
+    "piwik": ">=2.8.3"
+ },
+ "authors": [
+     {
+         "name": "renjie",
+         "email": "i@renjie.me",
+         "homepage": ""
+     }
+ ]
+}
