@@ -4,7 +4,7 @@
  "description": "Custom Display visitors Avatar and Description",
  "keywords": ["Intranet", "Visitor", "Avatar", "Description"],
  "license": "GPL v3",
- "homepage": "https://github.com/surenjie/VisitorAvatar",
+ "homepage": "http://plugins.piwik.org/VisitorAvatar",
  "theme": false,
  "require": {
     "piwik": ">=2.8.3"
