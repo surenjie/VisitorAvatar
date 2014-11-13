@@ -1,6 +1,6 @@
 {
  "name": "VisitorAvatar",
- "version": "0.2.0",
+ "version": "0.2.1",
  "description": "Custom display visitors avatar(URL) and description(Title & Alt)",
  "keywords": ["Intranet", "Visitor", "Avatar", "Description"],
  "license": "GPL v3",

@@ -48,11 +48,11 @@ http://plugins.piwik.org/VisitorAvatar
 
 ## Tutorial
 
-![Step1 Tracking Code](https://raw.githubusercontent.com/surenjie/VisitorAvatar/master/screenshots/Step1%20Tracking%20Code.png "Step1 Tracking Code")
+![Step1 Tracking Code](https://raw.githubusercontent.com/surenjie/VisitorAvatar/master/screenshots/Step1_Tracking_Code.png "Step1 Tracking Code")
 
-![Step2 Plugin Settings](https://raw.githubusercontent.com/surenjie/VisitorAvatar/master/screenshots/Step2%20Plugin%20Settings.png "Step2 Plugin Settings")
+![Step2 Plugin Settings](https://raw.githubusercontent.com/surenjie/VisitorAvatar/master/screenshots/Step2_Plugin_Settings.png "Step2 Plugin Settings")
 
-![Step3 Visitor Profile](https://raw.githubusercontent.com/surenjie/VisitorAvatar/master/screenshots/Step3%20Visitor%20Profile.png "Step3 Visitor Profile")
+![Step3 Visitor Profile](https://raw.githubusercontent.com/surenjie/VisitorAvatar/master/screenshots/Step3_Visitor_Profile.png "Step3 Visitor Profile")
 
 ## Support
 
