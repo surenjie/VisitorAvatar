@@ -34,36 +34,48 @@ class VisitorAvatar extends Plugin{
      * @see http://developer.piwik.org/api-reference/events#livegetextravisitordetails
      */
     public function getVisitorAvatarDetails(&$result){
-        // default
+        // default const
         $visitorAvatar = self::DEFAULT_AVATAR_URL_FIELD;
         $visitorDescription = self::DEFAULT_AVATAR_DESCRIPTION_FIELD;
         // @see Piwik\DataTable\Row
-        $visitorName = $this->getVisitorNameFromCustomVariables($result['lastVisits']->getFirstRow()->getColumns()['customVariables']);
-        // check
+        $customVariables = $result['lastVisits']->getFirstRow()->getColumns()['customVariables'];
+        $visitorName = $this->getVisitorNameFromCustomVariables($customVariables);
+        // check exist
         if($visitorName){
-            $visitorDescription = $visitorName;
             $visitorAvatarUrl = $this->getVisitorAvatarSetting('visitorAvatarUrl');
             if($visitorAvatarUrl){
-                # //dayu.oa.com/avatars/%s/profile.jpg
+                /* //rtx.oa.com/avatars/%s/profile.jpg */
                 $visitorAvatar = vsprintf($visitorAvatarUrl, array($visitorName));
             }
+            $visitorDescriptionText = $this->getVisitorAvatarSetting('visitorDescriptionText');
+            if($visitorDescriptionText){
+                /* my rtx is %s */
+                $visitorDescription = vsprintf($visitorDescriptionText, array($visitorName));
+            }else{
+                $visitorDescription = $visitorName;
+            }
         }
-        
+        // sync result
         $result['visitorAvatar'] = $visitorAvatar;
         $result['visitorDescription'] = $visitorDescription;
     }
 
     private function getVisitorNameFromCustomVariables($customVariables){
-        if (is_array($customVariables)) {
-            foreach ($customVariables as $customVariable) {
-                for ($i = 1; $i <= 5; $i ++) {
-                    if (isset($customVariable['customVariableName' . $i]) && $customVariable['customVariableName' . $i] == $this->getVisitorAvatarSetting('customVariableName')) {
-                        return $customVariable['customVariableValue' . $i];
-                    }
+        $visitorName = "";
+        if(is_array($customVariables)){
+            $prefix = "customVariable";
+            // Name of the custom variable
+            $customVariableName = $this->getVisitorAvatarSetting('customVariableName');
+            foreach($customVariables as $id => $customVariable){
+                $name = $prefix.'Name'.$id;
+                $value = $prefix.'Value'.$id;
+                if(isset($customVariable[$name]) && $customVariable[$name] == $customVariableName){
+                    $visitorName = $customVariable[$value];
+                    break;
                 }
             }
         }
-        return "";
+        return $visitorName;
     }
 
     /**
