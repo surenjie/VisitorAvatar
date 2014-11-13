@@ -23,14 +23,14 @@ class Settings extends \Piwik\Plugin\Settings{
         $setting->inlineHelp = 'Custom variable name where you set the user identifier (e.g. rtx, mail, username)';
         $this->addSetting($setting);
 
-        $setting = new SystemSetting('visitorAvatarUrl', 'Visitor Avatar URL rules');
+        $setting = new SystemSetting('visitorAvatarUrl', 'Visitor avatar url rules');
         $setting->readableByCurrentUser = true;
         $setting->type = self::TYPE_STRING;
         $setting->defaultValue = 'plugins/VisitorAvatar/images/default_avatar.gif';
         $setting->inlineHelp = 'Example : "//rtx.oa.com/avatars/%s/profile.jpg"';
         $this->addSetting($setting);
 
-        $setting = new SystemSetting('visitorDescriptionText', 'Visitor Description Text rules');
+        $setting = new SystemSetting('visitorDescriptionText', 'Visitor description text rules');
         $setting->readableByCurrentUser = true;
         $setting->type = self::TYPE_STRING;
         $setting->defaultValue = '%s';
