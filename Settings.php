@@ -9,33 +9,58 @@
  */
 namespace Piwik\Plugins\VisitorAvatar;
 
+use Piwik\Piwik;
 use Piwik\Settings\SystemSetting;
-use Piwik\Settings\Setting;
 
 class Settings extends \Piwik\Plugin\Settings{
+    /** @var SystemSetting */
+    public $customVariableName;
+
+    /** @var SystemSetting */
+    public $visitorAvatarUrl;
+
+    /** @var SystemSetting */
+    public $visitorDescriptionText;
+
+    private $exampleTranslateText;
 
     protected function init(){
+        $this->exampleTranslateText = Piwik::translate('VisitorAvatar_Example');
+        // PluginDescription
+        $this->setIntroduction(Piwik::translate('VisitorAvatar_PluginDescription'));
+        // SystemSetting
+        $this->createCustomVariableNameSetting();
+        $this->createVisitorAvatarUrlSetting();
+        $this->createVisitorDescriptionTextSetting();
+    }
 
-        $setting = new SystemSetting('customVariableName', 'Name of the custom variable');
-        $setting->readableByCurrentUser = true;
-        $setting->type = self::TYPE_STRING;
-        $setting->defaultValue = '';
-        $setting->inlineHelp = 'Custom variable name where you set the user identifier (e.g. rtx, mail, username)';
-        $this->addSetting($setting);
+    private function createCustomVariableNameSetting(){
+        $this->customVariableName = new SystemSetting('customVariableName', Piwik::translate('VisitorAvatar_CustomVariableName'));
+        $this->customVariableName->type  = static::TYPE_STRING;
+        $this->customVariableName->inlineHelp = $this->exampleTranslateText.' : "rtx", "mail", "login", "username"';
+        $this->customVariableName->description   = Piwik::translate('VisitorAvatar_CustomVariableName2');
+        $this->customVariableName->readableByCurrentUser = true;
 
-        $setting = new SystemSetting('visitorAvatarUrl', 'Visitor avatar url rules');
-        $setting->readableByCurrentUser = true;
-        $setting->type = self::TYPE_STRING;
-        $setting->defaultValue = 'plugins/VisitorAvatar/images/default_avatar.gif';
-        $setting->inlineHelp = 'Example : "//rtx.oa.com/avatars/%s/profile.jpg"';
-        $this->addSetting($setting);
+        $this->addSetting($this->customVariableName);
+    }
 
-        $setting = new SystemSetting('visitorDescriptionText', 'Visitor description text rules');
-        $setting->readableByCurrentUser = true;
-        $setting->type = self::TYPE_STRING;
-        $setting->defaultValue = '%s';
-        $setting->inlineHelp = 'Example : "my rtx is %s"';
-        $this->addSetting($setting);
+    private function createVisitorAvatarUrlSetting(){
+        $this->visitorAvatarUrl = new SystemSetting('visitorAvatarUrl', Piwik::translate('VisitorAvatar_VisitorAvatarUrl'));
+        $this->visitorAvatarUrl->type  = static::TYPE_STRING;
+        $this->visitorAvatarUrl->defaultValue = 'plugins/VisitorAvatar/images/default_avatar.gif';
+        $this->visitorAvatarUrl->inlineHelp = $this->exampleTranslateText.' : "//rtx.oa.com/avatars/%s/profile.jpg"';
+        $this->visitorAvatarUrl->readableByCurrentUser = true;
 
+        $this->addSetting($this->visitorAvatarUrl);
+    }
+
+    private function createVisitorDescriptionTextSetting(){
+        $this->visitorDescriptionText = new SystemSetting('visitorDescriptionText', Piwik::translate('VisitorAvatar_VisitorDescriptionText'));
+        $this->visitorDescriptionText->type  = static::TYPE_STRING;
+        $this->visitorDescriptionText->defaultValue = '%s';
+        $this->visitorDescriptionText->inlineHelp = $this->exampleTranslateText.' : "my rtx is %s", "login : %s"';
+        $this->visitorDescriptionText->readableByCurrentUser = true;
+
+        $this->addSetting($this->visitorDescriptionText);
     }
 }

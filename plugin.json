@@ -1,13 +1,13 @@
 {
  "name": "VisitorAvatar",
- "version": "0.2.1",
+ "version": "0.2.2",
  "description": "Custom display visitors avatar(URL) and description(Title & Alt)",
  "keywords": ["Intranet", "Visitor", "Avatar", "Description"],
  "license": "GPL v3",
  "homepage": "http://plugins.piwik.org/VisitorAvatar",
  "theme": false,
  "require": {
-    "piwik": ">=2.8.3"
+    "piwik": ">=2.5.0"
  },
  "authors": [
      {

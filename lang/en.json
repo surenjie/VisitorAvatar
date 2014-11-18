@@ -1,0 +1,10 @@
+{
+    "VisitorAvatar": {
+        "PluginDescription": "Custom display visitors avatar(URL) and description(Title & Alt)",
+        "CustomVariableName": "Name of the custom variable",
+        "CustomVariableName2": "Custom variable name where you set the user identifier",
+        "VisitorAvatarUrl": "Visitor avatar url rules",
+        "VisitorDescriptionText": "Visitor description text rules",
+        "Example": "Example"
+    }
+}
