@@ -1,6 +1,10 @@
 {
     "VisitorAvatar": {
-        "1": "1",
-        "1": "1"
+        "PluginDescription": "自定义显示访客头像(URL)与描述(Title & Alt)",
+        "CustomVariableName": "自定义变量名称",
+        "CustomVariableName2": "对应跟踪代码访客自定义用户标识变量",
+        "VisitorAvatarUrl": "访客头像链接规则",
+        "VisitorDescriptionText": "访客描述文本规则",
+        "Example": "例子"
     }
 }
